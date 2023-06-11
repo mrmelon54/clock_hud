@@ -9,7 +9,7 @@ version = "${version}"
 displayName = "Clock HUD"
 authors = "MrMelon54"
 description = "Display a clock on the client"
-#logoFile = ""
+logoFile = "/icon.png"
 
 [[dependencies.clock_hud]]
 modId = "forge"

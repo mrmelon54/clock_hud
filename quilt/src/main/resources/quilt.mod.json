@@ -20,7 +20,7 @@
         "issues": "https://github.com/MrMelon54/clock_hud/issues"
       },
       "license": "GPL-3.0-only",
-      "icon": "assets/clock_hud/icon.png"
+      "icon": "icon.png"
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
@@ -48,6 +48,6 @@
     ]
   },
   "minecraft": {
-    "environment": "*"
+    "environment": "client"
   }
 }
