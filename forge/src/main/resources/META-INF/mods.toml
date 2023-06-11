@@ -1,0 +1,33 @@
+modLoader = "javafml"
+loaderVersion = "[45,)"
+#issueTrackerURL = ""
+license = "GPL-3.0-only"
+
+[[mods]]
+modId = "clock_hud"
+version = "${version}"
+displayName = "Clock HUD"
+authors = "MrMelon54"
+description = "Display a clock on the client"
+#logoFile = ""
+
+[[dependencies.clock_hud]]
+modId = "forge"
+mandatory = true
+versionRange = "[45,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.clock_hud]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19.4,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.clock_hud]]
+modId = "architectury"
+mandatory = true
+versionRange = "[8.1.79,)"
+ordering = "AFTER"
+side = "BOTH"
