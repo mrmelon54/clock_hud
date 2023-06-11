@@ -1,6 +1,5 @@
 package com.mrmelon54.ClockHud.forge;
 
-import com.mrmelon54.ClockHud.ExampleExpectPlatform;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 import java.nio.file.Path;

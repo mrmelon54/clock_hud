@@ -18,6 +18,9 @@
   "entrypoints": {
     "main": [
       "com.mrmelon54.ClockHud.fabric.ClockHudFabric"
+    ],
+    "modmenu": [
+      "com.mrmelon54.ClockHud.fabriclike.ModMenuIntegration"
     ]
   },
   "mixins": [

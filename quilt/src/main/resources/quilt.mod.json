@@ -26,6 +26,9 @@
     "entrypoints": {
       "init": [
         "com.mrmelon54.ClockHud.quilt.ClockHudQuilt"
+      ],
+      "modmenu": [
+        "com.mrmelon54.ClockHud.fabriclike.ModMenuIntegration"
       ]
     },
     "depends": [
