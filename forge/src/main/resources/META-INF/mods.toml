@@ -10,6 +10,7 @@ displayName = "Clock HUD"
 authors = "MrMelon54"
 description = "Display a clock on the client"
 logoFile = "/icon.png"
+displayURL = "https://mrmelon54.com/minecraft/clock-hud"
 
 [[dependencies.clock_hud]]
 modId = "forge"
