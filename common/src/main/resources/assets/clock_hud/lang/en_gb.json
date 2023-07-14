@@ -1,0 +1,11 @@
+{
+  "text.autoconfig.clock-hud.title": "Clock HUD",
+  "text.autoconfig.clock-hud.option.gameTimeDisplayEnabled": "Game Time Display Enabled?",
+  "text.autoconfig.clock-hud.option.timeDisplayMode": "Game Time Display Mode",
+  "text.autoconfig.clock-hud.option.clockIconEnabled": "Clock Icon Enabled?",
+  "text.autoconfig.clock-hud.option.iconPosition": "Relative Clock Icon Position",
+  "text.autoconfig.clock-hud.option.position": "Position",
+  "text.autoconfig.clock-hud.option.color": "Colour",
+  "text.autoconfig.clock-hud.option.xOffset": "X Offset",
+  "text.autoconfig.clock-hud.option.yOffset": "Y Offset"
+}
