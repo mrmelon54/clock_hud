@@ -14,7 +14,7 @@ public class ClockHudRenderer implements ClientGuiEvent.RenderHud {
     public void renderHud(GuiGraphics graphics, float tickDelta) {
         ConfigStructure config = ClockHud.getConfig();
         Minecraft client = Minecraft.getInstance();
-        if (!config.clockEnabled || client.options.renderDebug) return;
+        if (!config.clockEnabled || client.gui.getDebugOverlay().showDebugScreen()) return;
 
         String clockText = client.level != null ? String.valueOf(client.level.dayTime() % 24000L) : "";
         int textLength = client.font.width(clockText);
