@@ -2,8 +2,6 @@
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W1607S8)
 
-Requires the [Fabric Loader](https://fabricmc.net/use/) and [Fabric API](https://modrinth.com/mod/fabric-api)
-
 ## Setup
 
 - Drop the mod in the mods folder
@@ -20,4 +18,4 @@ Requires the [Fabric Loader](https://fabricmc.net/use/) and [Fabric API](https:/
 ## Download
 
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/clockhud)
-- [Modrinth](https://modrinth.com/clock-hud)
+- [Modrinth](https://modrinth.com/mod/clock-hud)
