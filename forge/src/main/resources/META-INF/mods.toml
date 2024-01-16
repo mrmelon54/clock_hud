@@ -1,6 +1,6 @@
 modLoader = "javafml"
-loaderVersion = "[46,)"
-issueTrackerURL = "https://github.com/MrMelon54/clock_hud/issues"
+loaderVersion = "*"
+issueTrackerURL = "https://github.com/mrmelon54/clock_hud/issues"
 license = "GPL-3.0-only"
 
 [[mods]]
@@ -8,27 +8,27 @@ modId = "clock_hud"
 version = "${version}"
 displayName = "Clock HUD"
 authors = "MrMelon54"
-description = "Display a clock on the client"
+description = "${description}"
 logoFile = "/icon.png"
 displayURL = "https://mrmelon54.com/minecraft/clock-hud"
 
 [[dependencies.clock_hud]]
-modId = "forge"
-mandatory = true
-versionRange = "[46,)"
-ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.clock_hud]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20,)"
+versionRange = "[${minecraft_version},)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.clock_hud]]
 modId = "architectury"
 mandatory = true
-versionRange = "[9.0.0,)"
+versionRange = "[${architectury_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.clock_hud]]
+modId = "cloth_config"
+mandatory = true
+versionRange = "[${cloth_config_version},)"
 ordering = "AFTER"
 side = "BOTH"
