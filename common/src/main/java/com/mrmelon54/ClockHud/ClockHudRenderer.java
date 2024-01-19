@@ -13,9 +13,9 @@ public class ClockHudRenderer implements ClientGuiEvent.RenderHud {
     private ItemStack clockItemStack;
 
     private String printTime(GameTimeDisplayMode timeDisplayMode, ClientLevel level) {
-        long offsettedTimeInTicks = (level.dayTime() + 6000) % 24000;
-        String minutes = String.format("%02d", (int) ((double) (offsettedTimeInTicks / 10 % 100) / 100 * 60));
-        long hour = offsettedTimeInTicks / 1000;
+        long offsetTimeInTicks = (level.dayTime() + 6000) % 24000;
+        String minutes = String.format("%02d", (int) ((double) (offsetTimeInTicks / 10 % 100) / 100 * 60));
+        long hour = offsetTimeInTicks / 1000;
         return switch (timeDisplayMode) {
             case TICKS -> String.valueOf(level.dayTime() % 24000);
             case HRS24 -> hour + ":" + minutes;
