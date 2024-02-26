@@ -1,6 +1,7 @@
 package com.mrmelon54.ClockHud.old;
 
-#if MC_VER == MC_1_16_5
+#if MC_VER < MC_1_20_1
+
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -27,7 +28,13 @@ public class GuiGraphics extends GuiComponent {
     }
 
     public void renderItem(ItemStack clockItemStack, int x, int y, int z) {
+        #if MC_VER < MC_1_19_4
         Minecraft.getInstance().getItemRenderer().renderGuiItem(clockItemStack, x, y);
+        #elif MC_VER < MC_1_20_1
+        Minecraft.getInstance().getItemRenderer().renderGuiItem(matrices,clockItemStack,x,y);
+        #else
+        Minecraft.getInstance().getItemRenderer().renderGuiItem(clockItemStack, x, y);
+        #endif
     }
 }
 #endif

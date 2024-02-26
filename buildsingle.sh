@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "==================== Note: All build jars will be in the folder called 'buildAllJars' ===================="
-mkdir -p buildAllJars | true
+mkdir -p buildAllJars || true
 
 version="$1"
 

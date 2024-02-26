@@ -7,12 +7,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-#if MC_VER > MC_1_16_5
-import dev.architectury.event.events.client.ClientGuiEvent;
-import net.minecraft.client.gui.GuiGraphics;
-#else
+#if MC_VER < MC_1_20_1
 import com.mrmelon54.ClockHud.old.ClientGuiEvent;
 import com.mrmelon54.ClockHud.old.GuiGraphics;
+#else
+import dev.architectury.event.events.client.ClientGuiEvent;
+import net.minecraft.client.gui.GuiGraphics;
 #endif
 
 public class ClockHudRenderer implements ClientGuiEvent.RenderHud {

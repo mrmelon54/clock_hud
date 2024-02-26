@@ -46,7 +46,8 @@ processResources {
                 "description": rootProject.mod_description,
                 "minecraft_version": rootProject.minecraft_version,
                 "architectury_version": rootProject.architectury_version,
-                "cloth_config_version": rootProject.cloth_config_version
+                "cloth_config_version": rootProject.cloth_config_version,
+                "cloth_config_old": (rootProject.mcVer == "1.16.5" || root.mcVer == "1.17.1") ? "2" : ""
      }
 }
 

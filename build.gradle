@@ -39,6 +39,11 @@ writeBuildGradlePredefine(rootProject.mcVers, rootProject.mcIndex)
 
 rootProject.versionStr = "${project.mod_version}-mc${project.minecraft_version}"
 
+compileJava {
+    sourceCompatibility = rootProject.java_version
+    targetCompatibility = rootProject.java_version
+}
+
 architectury {
     minecraft = rootProject.minecraft_version
 }
@@ -67,8 +72,8 @@ allprojects {
     apply plugin: "architectury-plugin"
     apply plugin: "maven-publish"
 
-    archivesBaseName = rootProject.archives_base_name
-    version = "${project.name}-${rootProject.versionStr}"
+    archivesBaseName = "${rootProject.archives_base_name}-${project.name}"
+    version = rootProject.versionStr
     group = rootProject.maven_group
 
     repositories {
@@ -150,3 +155,13 @@ def getVersionMetadata() {
     // No tracking information could be found about the build
     return "unknown"
 }
+
+// Delete the merged folder when running clean
+task cleanMergedJars() {
+    def mergedFolder = file("Merged")
+    if (mergedFolder.exists()) {
+        delete(mergedFolder)
+    }
+}
+// add cleanMergedJars to the end of the "clean" task
+tasks["clean"].finalizedBy(cleanMergedJars)

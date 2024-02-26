@@ -4,10 +4,10 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.minecraft.client.gui.screens.Screen;
 
-#if MC_VER > MC_1_16_5
-    import dev.architectury.event.events.client.ClientGuiEvent;
-#else
+#if MC_VER < MC_1_20_1
 import com.mrmelon54.ClockHud.old.ClientGuiEvent;
+#else
+import dev.architectury.event.events.client.ClientGuiEvent;
 #endif
 
 import java.util.function.Supplier;
