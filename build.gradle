@@ -37,7 +37,7 @@ project.gradle.ext.getProperties().each { prop ->
 }
 writeBuildGradlePredefine(rootProject.mcVers, rootProject.mcIndex)
 
-rootProject.versionStr = "mc${project.minecraft_version}-${project.mod_version}-${getVersionMetadata()}"
+rootProject.versionStr = "${project.mod_version}-mc${project.minecraft_version}"
 
 architectury {
     minecraft = rootProject.minecraft_version
@@ -45,12 +45,15 @@ architectury {
 
 subprojects {
     apply plugin: "dev.architectury.loom"
+    apply plugin: "systems.manifold.manifold-gradle-plugin"
 
     loom {
         silentMojangMappingsLicense()
     }
 
     dependencies {
+        annotationProcessor("systems.manifold:manifold-preprocessor:${rootProject.manifold_version}")
+
         minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
         // The following line declares the mojmap mappings, you may use other mappings as well
         mappings loom.officialMojangMappings()
@@ -100,7 +103,7 @@ allprojects {
 
 forgix {
     group = "com.mrmelon54.ClockHud"
-    mergedJarName = "${project.archives_base_name}-${rootProject.versionStr}.jar"
+    mergedJarName = "${project.archives_base_name}-${rootProject.versionStr}-${getVersionMetadata()}.jar"
 
     if (findProject(":fabric"))
         fabric {
