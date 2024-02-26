@@ -1,4 +1,4 @@
-package com.mrmelon54.ClockHud.forge;
+package com.mrmelon54.ClockHud.neoforge;
 
 import dev.architectury.forge.ArchitecturyForge;
 import dev.architectury.platform.forge.EventBuses;
