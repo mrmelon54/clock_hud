@@ -3,9 +3,23 @@ name: Java CI
 on: [ push ]
 
 jobs:
-  build:
+  resolve-versions:
+    name: "Resolve Versions"
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: jo
+      - id: set-matrix
+        run: ./resolveversions.sh >> $GITHUB_OUTPUT
 
+  build:
+    needs: resolve-versions
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(needs.resolve-versions.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
@@ -13,10 +27,33 @@ jobs:
         with:
           java-version: "17"
           distribution: "adopt"
-
+      - name: Create cache for builds
+        uses: actions/cache@v4
+        with:
+          path: buildAllJars
+          key: buildAllJars-key
       - name: Build
-        run: ./buildall.sh
+        run: ./buildsingle.sh ${{ matrix.version }}
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - name: Restore cached docker image
+        uses: actions/cache/restore@v4
+        with:
+          path: buildAllJars
+          key: buildAllJars-key
       - name: Deploy
         if: startsWith(github.ref, 'refs/tags/v')
-        run: 'curl --fail -X POST -H "Authorization: Bearer ${{ secrets.DEPLOY }}" -F "upload=@$(ls -1 build/libs/merged/*.jar)" https://api.mrmelon54.com/v1/mc-upload/upload/clock-hud'
+        run: |
+          #!/bin/bash
+
+          files=()
+          find ./buildAllJars/ -name "*.jar" | while IFS= read -r file; do
+            baseFileName="$(basename "$filename")"
+            files+=(-F "$baseFileName=@$filename")
+          done
+
+          curl --fail -X POST -H "Authorization: Bearer ${{ secrets.DEPLOY }}" "${files[@]}" https://api.mrmelon54.com/v1/mc-upload/upload/clock-hud
