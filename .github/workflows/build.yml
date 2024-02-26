@@ -20,6 +20,7 @@ jobs:
     needs: resolve-versions
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix: ${{ fromJson(needs.resolve-versions.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v3
