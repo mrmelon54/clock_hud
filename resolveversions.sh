@@ -16,4 +16,4 @@ done
 
 versionsJson=$(jo -a -- "${versions[@]}")
 
-echo "matrix={\"include\":$versionsJson}"
+echo "matrix={\"include\":${versionsJson}}"

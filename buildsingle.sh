@@ -6,13 +6,11 @@ mkdir -p buildAllJars | true
 version="$1"
 
 # Clean out the folders, build it, and merge it
-# (We could use "./" to run gradlew, but as it is a shell script im going to be running it with the "sh" command)
 echo "==================== Cleaning workspace to build $version ===================="
-sh gradlew clean -PmcVer="$version" --no-daemon || true
+sh gradlew clean -PmcVer="$version" --no-daemon
 echo "====================Building $version ===================="
-sh gradlew build -PmcVer="$version" --no-daemon || true
+sh gradlew build -PmcVer="$version" --no-daemon
 echo "==================== Merging $version ===================="
-sh gradlew mergeJars -PmcVer="$version" --no-daemon || true
+sh gradlew mergeJars -PmcVer="$version" --no-daemon
 echo "==================== Moving jar ===================="
-mv Merged/*.jar buildAllJars/ || true
-# The "| true" at the end of those are just to make sure the script continues even if a build fails
+mv Merged/*.jar buildAllJars/
