@@ -14,7 +14,7 @@ jobs:
         with:
           packages: jo
       - id: set-matrix
-        run: ../../resolveversions.sh >> $GITHUB_OUTPUT
+        run: ./resolveversions.sh >> $GITHUB_OUTPUT
 
   build:
     needs: resolve-versions
@@ -34,7 +34,7 @@ jobs:
           path: buildAllJars
           key: buildAllJars-key
       - name: Build
-        run: ../../buildsingle.sh ${{ matrix.version }}
+        run: ./buildsingle.sh ${{ matrix.version }}
 
   deploy:
     needs: build
@@ -49,4 +49,4 @@ jobs:
           key: buildAllJars-key
       - name: Deploy
         if: startsWith(github.ref, 'refs/tags/v')
-        run: ../../publishbuilds.sh
+        run: ./publishbuilds.sh
