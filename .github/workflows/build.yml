@@ -13,7 +13,7 @@ jobs:
         with:
           packages: jo
       - id: set-matrix
-        run: ./resolveversions.sh >> $GITHUB_OUTPUT
+        run: ../../resolveversions.sh >> $GITHUB_OUTPUT
 
   build:
     needs: resolve-versions
@@ -33,7 +33,7 @@ jobs:
           path: buildAllJars
           key: buildAllJars-key
       - name: Build
-        run: ./buildsingle.sh ${{ matrix.version }}
+        run: ../../buildsingle.sh ${{ matrix.version }}
 
   deploy:
     needs: build
@@ -47,13 +47,4 @@ jobs:
           key: buildAllJars-key
       - name: Deploy
         if: startsWith(github.ref, 'refs/tags/v')
-        run: |
-          #!/bin/bash
-
-          files=()
-          find ./buildAllJars/ -name "*.jar" | while IFS= read -r file; do
-            baseFileName="$(basename "$filename")"
-            files+=(-F "$baseFileName=@$filename")
-          done
-
-          curl --fail -X POST -H "Authorization: Bearer ${{ secrets.DEPLOY }}" "${files[@]}" https://api.mrmelon54.com/v1/mc-upload/upload/clock-hud
+        run: ../../publishbuilds.sh
