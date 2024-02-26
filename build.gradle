@@ -80,7 +80,17 @@ allprojects {
 
     tasks.withType(JavaCompile) {
         options.encoding = "UTF-8"
-        options.release = 17
+        options.release = rootProject.java_version as Integer
+        options.compilerArgs += ["-Xplugin:Manifold"]
+    }
+
+    processResources {
+        exclude { file ->
+            if (file.name.contains(".${mod_id}.accesswidener") && file.name != "${accessWidenerVersion}.${mod_id}.accesswidener") {
+                return true
+            }
+            return false
+        }
     }
 
     java {
