@@ -9,7 +9,7 @@ version = "${version}"
 displayName = "Clock HUD"
 authors = "MrMelon54"
 description = "${description}"
-logoFile = "/icon.png"
+logoFile = "icon.png"
 displayURL = "https://mrmelon54.com/minecraft/clock-hud"
 
 [[dependencies.clock_hud]]
