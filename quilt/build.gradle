@@ -58,7 +58,7 @@ processResources {
         expand "group": rootProject.maven_group,
                 "version": project.version,
                 "description": rootProject.mod_description,
-                "minecraft_version": rootProject.minecraft_version,
+                "compatible_minecraft_versions": rootProject.compatible_minecraft_versions,
                 "architectury_version": rootProject.architectury_version,
                 "cloth_config_version": rootProject.cloth_config_version
     }

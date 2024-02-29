@@ -29,7 +29,7 @@
   ],
   "depends": {
     "fabric": "*",
-    "minecraft": "${minecraft_version}",
+    "minecraft": $compatible_minecraft_versions,
     "architectury": ">=${architectury_version}",
     "cloth-config${cloth_config_old}": ">=${cloth_config_version}"
   }
