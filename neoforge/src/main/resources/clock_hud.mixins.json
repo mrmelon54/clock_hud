@@ -1,6 +1,7 @@
 {
   "required": true,
-  "package": "com.mrmelon54.ClockHud.mixin.fabric",
+  "package": "com.mrmelon54.ClockHud.mixin.forge",
+  "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "client": [
   ],

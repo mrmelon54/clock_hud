@@ -26,4 +26,8 @@ bin/
 
 # fabric
 
+
 run/
+Merged/
+buildAllJars/
+build.properties
