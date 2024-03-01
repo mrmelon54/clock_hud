@@ -22,13 +22,6 @@ def writeBuildGradlePredefine(List<String> mcVers, int mcIndex) {
     }
 
 
-    // Check if this is a development build
-    if (mod_version.toLowerCase().contains("dev")) {
-        // WARNING: only use this for logging, we don't want to have confusion
-        // when a method doesn't work correctly in the release build.
-        sb.append("DEV_BUILD=\n");
-    }
-
     new File(projectDir, "build.properties").text = sb.toString()
 }
 
@@ -37,7 +30,7 @@ project.gradle.ext.getProperties().each { prop ->
 }
 writeBuildGradlePredefine(rootProject.mcVers, rootProject.mcIndex)
 
-rootProject.versionStr = "${project.mod_version}-mc${project.minecraft_version}"
+rootProject.versionStr = "${rootProject.mod_version}-mc${rootProject.minecraft_version}"
 
 compileJava {
     sourceCompatibility = rootProject.java_version
