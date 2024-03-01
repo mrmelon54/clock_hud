@@ -40,7 +40,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
     steps:
       - uses: actions/checkout@v3
       - name: Restore cached docker image
@@ -48,7 +47,11 @@ jobs:
         with:
           path: buildAllJars
           key: buildAllJars-key
-      - name: Deploy
+      - name: Files
+        run: |
+          #!/bin/bash
+          ls -1 ./buildAllJars/*.jar
+      - name: Publish
         if: startsWith(github.ref, 'refs/tags/v')
         run: |
           #!/bin/bash
