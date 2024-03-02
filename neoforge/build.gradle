@@ -40,7 +40,7 @@ processResources {
     filesMatching("META-INF/mods.toml") {
         expand "version": project.version,
                 "description": rootProject.mod_description,
-                "compatible_minecraft_versions": "${compatible_minecraft_versions}".replaceAll("\"", "").replaceAll("]", ")"),
+                "compatible_minecraft_versions": rootProject.compatible_forge_versions,
                 "architectury_version": rootProject.architectury_version,
                 "cloth_config_version": rootProject.cloth_config_version
     }

@@ -6,6 +6,8 @@ plugins {
     id "systems.manifold.manifold-gradle-plugin" version "0.0.2-alpha"
 }
 
+import groovy.json.JsonSlurper
+
 def writeBuildGradlePredefine(List<String> mcVers, int mcIndex) {
     // Build the list of preprocessors to use
     StringBuilder sb = new StringBuilder();
@@ -25,12 +27,21 @@ def writeBuildGradlePredefine(List<String> mcVers, int mcIndex) {
     new File(projectDir, "build.properties").text = sb.toString()
 }
 
+def generateForgeVersions(mc_versions) {
+    def json = new JsonSlurper().parseText(mc_versions) as List<String>
+    if (json.size() == 0) {
+        return "error"
+    }
+    return "[" + json[0] + "," + json[json.size() - 1] + "]"
+}
+
 project.gradle.ext.getProperties().each { prop ->
     rootProject.ext.set(prop.key, prop.value)
 }
 writeBuildGradlePredefine(rootProject.mcVers, rootProject.mcIndex)
 
 rootProject.versionStr = "${rootProject.mod_version}-mc${rootProject.minecraft_version}"
+rootProject.compatible_forge_versions = generateForgeVersions(rootProject.compatible_minecraft_versions)
 
 compileJava {
     sourceCompatibility = rootProject.java_version
