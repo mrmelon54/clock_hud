@@ -1,4 +1,4 @@
-package com.mrmelon54.ClockHud.fabriclike;
+package com.mrmelon54.ClockHud;
 
 import com.mrmelon54.ClockHud.ConfigStructure;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
@@ -11,6 +11,6 @@ import net.fabricmc.api.Environment;
 public class ModMenuIntegration implements ModMenuApi {
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> AutoConfig.getConfigScreen(ConfigStructure.class, parent).get();
+        return parent -> ClockHud.createConfigScreen(parent).get();
     }
 }

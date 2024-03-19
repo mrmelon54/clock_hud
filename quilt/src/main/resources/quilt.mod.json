@@ -28,7 +28,7 @@
         "com.mrmelon54.ClockHud.quilt.ClockHudQuilt"
       ],
       "modmenu": [
-        "com.mrmelon54.ClockHud.fabriclike.ModMenuIntegration"
+        "com.mrmelon54.ClockHud.ModMenuIntegration"
       ]
     },
     "depends": [

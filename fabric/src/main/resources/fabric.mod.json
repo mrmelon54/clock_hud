@@ -20,7 +20,7 @@
       "com.mrmelon54.ClockHud.fabric.ClockHudFabric"
     ],
     "modmenu": [
-      "com.mrmelon54.ClockHud.fabriclike.ModMenuIntegration"
+      "com.mrmelon54.ClockHud.ModMenuIntegration"
     ]
   },
   "mixins": [
