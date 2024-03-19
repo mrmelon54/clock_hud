@@ -2,18 +2,13 @@ package com.mrmelon54.ClockHud;
 
 import com.mrmelon54.ClockHud.enums.ClockPosition;
 import com.mrmelon54.ClockHud.enums.GameTimeDisplayMode;
-import com.mrmelon54.ClockHud.old.OldUtils;
+import com.mrmelon54.OmniPlay.OmniPlay;
+import com.mrmelon54.OmniPlay.event.events.client.ClientGuiEvent;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-#if MC_VER < MC_1_20_1
-import com.mrmelon54.ClockHud.old.ClientGuiEvent;
-import com.mrmelon54.ClockHud.old.GuiGraphics;
-#else
-import dev.architectury.event.events.client.ClientGuiEvent;
-import net.minecraft.client.gui.GuiGraphics;
-#endif
 
 public class ClockHudRenderer implements ClientGuiEvent.RenderHud {
     private ItemStack clockItemStack;
@@ -38,7 +33,7 @@ public class ClockHudRenderer implements ClientGuiEvent.RenderHud {
     public void renderHud(GuiGraphics graphics, float tickDelta) {
         ConfigStructure config = ClockHud.getConfig();
         Minecraft client = Minecraft.getInstance();
-        if (OldUtils.showDebugScreen()) return;
+        if (OmniPlay.showDebugScreen()) return;
 
         String clockText = client.level != null ? printTime(config.timeDisplayMode, client.level) : "";
         int textLength = client.font.width(clockText);

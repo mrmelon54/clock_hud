@@ -11,7 +11,6 @@ public class ClockHudNeoForge {
     public ClockHudNeoForge() {
         // Submit our event bus to let architectury register our content on the right time
         ModLoadingContext.get().registerExtensionPoint(ConfigScreenFactory.class, () -> new ConfigScreenFactory((mc, screen) -> ClockHud.createConfigScreen(screen).get()));
-
         ClockHud.init();
     }
 }

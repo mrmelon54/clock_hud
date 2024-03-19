@@ -26,8 +26,8 @@ bin/
 
 # fabric
 
-
 run/
-Merged/
-buildAllJars/
 build.properties
+*.build.log
+.architectury-transformer/
+buildAllJars/

@@ -26,7 +26,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: "17"
-          distribution: "adopt"
+          distribution: "temurin"
       - name: Build
         run: ./buildsingle.sh "${{ matrix.mc }}"
       - uses: actions/upload-artifact@v4

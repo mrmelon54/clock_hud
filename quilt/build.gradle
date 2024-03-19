@@ -43,11 +43,10 @@ dependencies {
         exclude(group: "net.fabricmc")
         exclude(group: "net.fabricmc.fabric-api")
     }
-
-    common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionQuilt")) { transitive false }
-    common(project(path: ":fabric-like", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":fabric-like", configuration: "transformProductionQuilt")) { transitive false }
+    modApi("com.mrmelon54.OmniPlay:omniplay-quilt:${rootProject.omniplay_version}-mc${rootProject.mcVer}") {
+        exclude(group: "net.fabricmc")
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 }
 
 processResources {
