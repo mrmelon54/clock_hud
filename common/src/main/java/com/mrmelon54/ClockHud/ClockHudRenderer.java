@@ -31,7 +31,7 @@ public class ClockHudRenderer implements ClientGuiEvent.RenderHud {
 
     @Override
     public void renderHud(GuiGraphics graphics, float tickDelta) {
-        ConfigStructure config = ClockHud.getConfig();
+        ConfigStructure config = ClockHud.CONFIG;
         Minecraft client = Minecraft.getInstance();
         if (OmniPlay.showDebugScreen()) return;
 

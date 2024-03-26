@@ -10,15 +10,9 @@ import java.util.function.Supplier;
 
 public class ClockHud {
     public static final String MOD_ID = "clock_hud";
-    private static ConfigStructure config;
-
-    public static ConfigStructure getConfig() {
-        return config;
-    }
+    public static final ConfigStructure CONFIG = AutoConfig.register(ConfigStructure.class, JanksonConfigSerializer::new).get();
 
     public static void init() {
-        AutoConfig.register(ConfigStructure.class, JanksonConfigSerializer::new);
-        config = AutoConfig.getConfigHolder(ConfigStructure.class).getConfig();
         OmniPlay.registerConfigScreen((mc, screen) -> createConfigScreen(screen).get());
         ClientGuiEvent.RENDER_HUD.register(new ClockHudRenderer());
     }

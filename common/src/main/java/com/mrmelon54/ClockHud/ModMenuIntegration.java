@@ -1,9 +1,7 @@
 package com.mrmelon54.ClockHud;
 
-import com.mrmelon54.ClockHud.ConfigStructure;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
-import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
