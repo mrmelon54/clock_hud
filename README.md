@@ -5,6 +5,7 @@
 ## Setup
 
 - Drop the mod in the mods folder
+- Requires [Infrastructury](https://modrinth.com/mod/infrastructury) and [Architectury API](https://modrinth.com/mod/architectury-api)
 
 ## Info
 
