@@ -14,6 +14,9 @@ import com.mrmelon54.ClockHud.old.GuiGraphics;
 import dev.architectury.event.events.client.ClientGuiEvent;
 import net.minecraft.client.gui.GuiGraphics;
 #endif
+#if MC_VER >= MC_1_21
+import net.minecraft.client.DeltaTracker;
+#endif
 
 public class ClockHudRenderer implements ClientGuiEvent.RenderHud {
     private ItemStack clockItemStack;
@@ -34,8 +37,13 @@ public class ClockHudRenderer implements ClientGuiEvent.RenderHud {
         return "";
     }
 
+    #if MC_VER <= MC_1_20_6
     @Override
     public void renderHud(GuiGraphics graphics, float tickDelta) {
+    #else
+    @Override
+    public void renderHud(GuiGraphics graphics, DeltaTracker deltaTracker) {
+    #endif
         ConfigStructure config = ClockHud.getConfig();
         Minecraft client = Minecraft.getInstance();
         if (OldUtils.showDebugScreen()) return;

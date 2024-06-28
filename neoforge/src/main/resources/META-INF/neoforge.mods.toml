@@ -12,23 +12,29 @@ description = "${description}"
 logoFile = "icon.png"
 displayURL = "https://mrmelon54.com/minecraft/clock-hud"
 
+[[mixins]]
+config="clock_hud.mixins.json"
+
+[[mixins]]
+config="clock_hud-common.mixins.json"
+
 [[dependencies.clock_hud]]
 modId = "minecraft"
-mandatory = true
+type = "required"
 versionRange = "${compatible_minecraft_versions}"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.clock_hud]]
 modId = "architectury"
-mandatory = true
+type = "required"
 versionRange = "[${architectury_version},)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.clock_hud]]
 modId = "cloth_config"
-mandatory = true
+type = "required"
 versionRange = "[${cloth_config_version},)"
 ordering = "AFTER"
 side = "BOTH"
