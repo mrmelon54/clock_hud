@@ -132,11 +132,6 @@ forgix {
             jarLocation = "build/libs/${project.archives_base_name}-quilt-${rootProject.versionStr}.jar"
         }
 
-    if (findProject(":forge"))
-        forge {
-            jarLocation = "build/libs/${project.archives_base_name}-forge-${rootProject.versionStr}.jar"
-        }
-
     if (findProject(":neoforge"))
         custom {
             projectName = "neoforge"
